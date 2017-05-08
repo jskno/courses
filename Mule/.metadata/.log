@@ -4077,3 +4077,9 @@ org.xml.sax.SAXParseException; lineNumber: 12; columnNumber: 56; Element type "e
 	at org.eclipse.wst.sse.ui.internal.reconcile.DocumentRegionProcessor.process(DocumentRegionProcessor.java:321)
 	at org.eclipse.wst.sse.ui.internal.reconcile.StructuredRegionProcessor.process(StructuredRegionProcessor.java:258)
 	at org.eclipse.wst.sse.ui.internal.reconcile.DirtyRegionProcessor$BackgroundThread.run(DirtyRegionProcessor.java:691)
+
+!ENTRY org.mule.tooling.core 2 0 2017-05-08 18:28:20.089
+!MESSAGE Server definition does not have a library folder labeled Mule Core Libraries (per app)
+
+!ENTRY org.mule.tooling.core 2 0 2017-05-08 18:28:20.089
+!MESSAGE Server definition does not have a library folder labeled Mule Core Libraries (per app)
