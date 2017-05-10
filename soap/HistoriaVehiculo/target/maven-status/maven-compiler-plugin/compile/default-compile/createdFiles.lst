@@ -1,0 +1,9 @@
+com\udemy\repository\VehiculoRepository.class
+com\udemy\HistoriaVehiculoApplication.class
+com\udemy\WebServiceConfig.class
+io\spring\guides\gs_producing_web_service\GetVehiculoRequest.class
+io\spring\guides\gs_producing_web_service\GetVehiculoResponse.class
+io\spring\guides\gs_producing_web_service\ObjectFactory.class
+io\spring\guides\gs_producing_web_service\package-info.class
+com\udemy\service\VehiculoEndpoint.class
+io\spring\guides\gs_producing_web_service\Vehiculo.class

@@ -1,0 +1,7 @@
+package udemy.demo;
+
+public class Snippet {
+	public VehiculoBean getDatos(@RequestBody IdentificacionBean identificacionBean){
+	
+}
+

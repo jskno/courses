@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+
+	<spring:beans>
+		<spring:bean id="util" class="udemy.demo.Util" />
+	</spring:beans>
+	
+    <flow name="ejemplo3Flow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/ejemplo3" allowedMethods="POST" doc:name="HTTP"/>
+        <logger message="'Estado: ' + #[json:estado]" level="INFO" doc:name="Logger"/>
+        <choice doc:name="Choice">
+            <when expression="#[json:estado=1]">
+                <splitter expression="#[json:lstVehiculo]" doc:name="Splitter"/>
+                <logger level="INFO" doc:name="Logger" message="Modelo:  #[json:modelo] - Anio: #[json:anio]"/>
+                <invoke name="Invoke" object-ref="util" method="demo" methodArguments="#[json:modelo], #[json:anio]" methodArgumentTypes="java.lang.String, java.lang.Integer"/>
+                <collection-aggregator failOnTimeout="true" doc:name="Collection Aggregator"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[{&quot;codigo&quot;:1,&quot;mensaje&quot;:&quot;Error&quot;}]" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>

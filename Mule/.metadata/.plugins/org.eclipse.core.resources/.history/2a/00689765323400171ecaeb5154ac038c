@@ -1,0 +1,13 @@
+package udemy.demo;
+
+public class Util {
+	
+	public VehiculoBean demo(String modelo, int anio) {
+		VehiculoBean vehiculoBean = new VehiculoBean();
+		vehiculoBean.setModelo(modelo);
+		vehiculoBean.setAnio(anio);
+		return vehiculoBean;
+		
+	}
+
+}
